@@ -2,14 +2,18 @@ package com.example.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import javax.validation.constraints.NotBlank;
+
 public class User {
 
     public interface UserSimpleView {};
 
     public interface UserDetailView extends UserSimpleView {};
 
+    @NotBlank(message = "用户名不能为空")
     private String username;
 
+    @NotBlank(message = "密码不能为空")
     private String password;
 
     public User() {}
